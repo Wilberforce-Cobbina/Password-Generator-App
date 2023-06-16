@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+
+<body>
+  <section class="background">
+    <section class="main-contianer">
+
+      <h6>Password Generator</h6>
+
+      <div class="password-container">
+        <span id="final_password"></span>
+        <span class="copied" id="copied"></span>        
+        <img src="./assets/images/icon-copy.svg" alt="" id="copybtn">
+      </div>
+
+      <div class="lowercontainer">
+        <div class="characlen">
+          <h6>Character Length</h6>
+          <h5 class="slidecount" id="slider-count"></h5>
+        </div>
+
+        <div class="slider-container">
+          <input type="range" min="1" max="100" value="0" class="slider" id="mySlider">
+        </div>
+
+        <div class="listoptions">
+          <div class="list-container1">
+            <input type="checkbox" class="numberbox" id="uppercase_check">
+            <label>Include Uppercase Letters</label>
+          </div>
+          <div class="list-container2">
+            <input type="checkbox" class="numberbox" id="lowercase_check">
+            <label>Include Lowercase Letters</label>
+          </div>
+          <div class="list-container3">
+            <input type="checkbox" class="numberbox" id="numbers_check">
+            <label>Include Numbers</label>
+          </div>
+          <div class="list-container4">
+            <input type="checkbox" class="numberbox" id="symbols_check">
+            <label>Include Symbols</label>
+          </div>
+        </div>
+
+        <div class="strength-container">
+          <div class="color-container">
+            <div class="colorbox1" id="colordisplay1"></div>
+            <div class="colorbox2" id="colordisplay2"></div>
+            <div class="colorbox3" id="colordisplay3"></div>
+            <div class="colorbox4" id="colordisplay4"></div>
+          </div>
+          <span class="passstrength" id="passstrength"></span>
+          <p>STRENGTH</p>
+        </div>
+        <div class="gencontainer">
+          <button id="generate">Generate</button>
+          <img src="./assets/images/icon-arrow-right.svg" alt="">
+        </div>
+
+      </div>
+    </section>
+  </section>
+</body>
+
+<script src="./app.js"></script>
+
+</html>
