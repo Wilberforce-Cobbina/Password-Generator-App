@@ -1,9 +1,7 @@
 // Slider manipulation and count
 const slider = document.getElementById('mySlider')
 const output = document.getElementById('slider-count')
-
 output.innerHTML = slider.value
-
 slider.oninput = function () {
     output.innerHTML = this.value
 }
@@ -51,6 +49,10 @@ copy.addEventListener('click', () => {
     copiedDisplay.appendChild(copiedtext);
 });
 
+const strenColor1 = document.getElementById('colordisplay1');
+const strenColor2 = document.getElementById('colordisplay2');
+const strenColor3 = document.getElementById('colordisplay3');
+const strenColor4 = document.getElementById('colordisplay4');
 
 
 generate.addEventListener('click', () => {
@@ -64,12 +66,6 @@ generate.addEventListener('click', () => {
 
     //Validating the strength of the password
 
-    const strenColor1 = document.getElementById('colordisplay1');
-    const strenColor2 = document.getElementById('colordisplay2');
-    const strenColor3 = document.getElementById('colordisplay3');
-    const strenColor4 = document.getElementById('colordisplay4');
-
-
 
     const strenArr = [lowercase.checked, uppercase.checked, numbers.checked, symbols.checked];
     let trueCount = 0;
@@ -77,92 +73,53 @@ generate.addEventListener('click', () => {
     for (let i = 0; i < strenArr.length; i++) {
         if (strenArr[i] === true) {
             trueCount++;
-        } if (trueCount === 1) {
-            strenColor1.style.backgroundColor = 'rgb(246, 74, 74)';
-            strenColor1.style.borderColor = 'rgb(246, 74, 74)';
-            strenColor1.style.borderWidth = '2px';
-            strenColor1.style.borderStyle = 'solid';
+        }
+    }
 
-            // const tooweaktext = document.createTextNode('too weak!');
-            // passwordStrength.appendChild(tooweaktext);
-        } else if (trueCount === 2) {
-            strenColor1.style.backgroundColor = 'rgb(251, 124, 88)';
-            strenColor1.style.borderColor = 'rgb(251, 124, 88)';
-            strenColor1.style.borderWidth = '2px';
-            strenColor1.style.borderStyle = 'solid';
 
-            strenColor2.style.backgroundColor = 'rgb(251, 124, 88)';
-            strenColor2.style.borderColor = 'rgb(251, 124, 88)';
-            strenColor2.style.borderWidth = '2px';
-            strenColor2.style.borderStyle = 'solid';
+    switch (trueCount) {
+        case 1:
+            if (passwordStrength.firstChild) {
+                passwordStrength.removeChild(passwordStrength.firstChild)
+            }
+            const tooweaktext = document.createTextNode('too weak!');
+            passwordStrength.appendChild(tooweaktext);
 
-            // const weaktext = document.createTextNode('weak');
-            // passwordStrength.appendChild(weaktext);
-        } else if (trueCount === 3) {
-            strenColor1.style.backgroundColor = 'rgb(248, 205, 101)';
-            strenColor1.style.borderColor = 'rgb(248, 205, 101)';
-            strenColor1.style.borderWidth = '2px';
-            strenColor1.style.borderStyle = 'solid';
+            tooWeakColor();
+            break;
 
-            strenColor2.style.backgroundColor = 'rgb(248, 205, 101)';
-            strenColor2.style.borderColor = 'rgb(248, 205, 101)';
-            strenColor2.style.borderWidth = '2px';
-            strenColor2.style.borderStyle = 'solid';
+        case 2:
+            if (passwordStrength.firstChild) {
+                passwordStrength.removeChild(passwordStrength.firstChild)
+            }
+            const weaktext = document.createTextNode('weak');
+            passwordStrength.appendChild(weaktext);
 
-            strenColor3.style.backgroundColor = 'rgb(248, 205, 101)';
-            strenColor3.style.borderColor = 'rgb(248, 205, 101)';
-            strenColor3.style.borderWidth = '2px';
-            strenColor3.style.borderStyle = 'solid';
+            weakColor();
+            break;
 
-            // const mediumtext = document.createTextNode('medium');
-            // passwordStrength.appendChild(mediumtext);
-        } else if (trueCount === 4) {
-            strenColor1.style.backgroundColor = 'rgb(164, 255, 175)';
-            strenColor1.style.borderColor = 'rgb(164, 255, 175)';
-            strenColor1.style.borderWidth = '2px';
-            strenColor1.style.borderStyle = 'solid';
+        case 3:
+            if (passwordStrength.firstChild) {
+                passwordStrength.removeChild(passwordStrength.firstChild)
+            }
+            const mediumtext = document.createTextNode('medium');
+            passwordStrength.appendChild(mediumtext);
 
-            strenColor2.style.backgroundColor = 'rgb(164, 255, 175)';
-            strenColor2.style.borderColor = 'rgb(164, 255, 175)';
-            strenColor2.style.borderWidth = '2px';
-            strenColor2.style.borderStyle = 'solid';
+            mediumColor();
+            break;
 
-            strenColor3.style.backgroundColor = 'rgb(164, 255, 175)';
-            strenColor3.style.borderColor = 'rgb(164, 255, 175)';
-            strenColor3.style.borderWidth = '2px';
-            strenColor3.style.borderStyle = 'solid';
+        case 4:
+            if (passwordStrength.firstChild) {
+                passwordStrength.removeChild(passwordStrength.firstChild)
+            }
+            const strongtext = document.createTextNode('strong');
+            passwordStrength.appendChild(strongtext);
 
-            strenColor4.style.backgroundColor = 'rgb(164, 255, 175)';
-            strenColor4.style.borderColor = 'rgb(164, 255, 175)';
-            strenColor4.style.borderWidth = '2px';
-            strenColor4.style.borderStyle = 'solid';
-
-            // const strongtext = document.createTextNode('strong');
-            // passwordStrength.appendChild(strongtext);
-        } /*else{
+            strongColor();
+            break;
+        default:
             alert('Please choose at least one option');
-        }*/
-
-
-
     }
-
-    if (trueCount === 1) {
-        const tooweaktext = document.createTextNode('too weak!');
-        passwordStrength.appendChild(tooweaktext);
-    } else if (trueCount === 2) {
-        const weaktext = document.createTextNode('weak');
-        passwordStrength.appendChild(weaktext);
-    } else if (trueCount === 3) {
-        const mediumtext = document.createTextNode('medium');
-        passwordStrength.appendChild(mediumtext);
-    } else if (trueCount === 4) {
-        const strongtext = document.createTextNode('strong');
-        passwordStrength.appendChild(strongtext);
-    } else {
-        alert('Please choose at least one option');
-    }
-
 });
 
 function generatePassword(lower, upper, number, symbol, length) {
@@ -185,7 +142,6 @@ function generatePassword(lower, upper, number, symbol, length) {
     }
 
     const finalPassword = generatedPassword.slice(0, length);
-
     return finalPassword;
 }
 
@@ -205,3 +161,70 @@ function getRandomSymbol() {
     const symbols = '!@#$%^&*(){}[]=<>/,.'
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
+function tooWeakColor() {
+    strenColor1.style.backgroundColor = 'rgb(246, 74, 74)';
+    strenColor1.style.borderColor = 'rgb(246, 74, 74)';
+    strenColor1.style.borderWidth = '2px';
+    strenColor1.style.borderStyle = 'solid';
+}
+
+const tooWeakColorRef = tooWeakColor();
+
+function weakColor() {
+    strenColor1.style.backgroundColor = 'rgb(251, 124, 88)';
+    strenColor1.style.borderColor = 'rgb(251, 124, 88)';
+    strenColor1.style.borderWidth = '2px';
+    strenColor1.style.borderStyle = 'solid';
+
+    strenColor2.style.backgroundColor = 'rgb(251, 124, 88)';
+    strenColor2.style.borderColor = 'rgb(251, 124, 88)';
+    strenColor2.style.borderWidth = '2px';
+    strenColor2.style.borderStyle = 'solid';
+}
+
+const weakColorRef = weakColor();
+
+function mediumColor() {
+    strenColor1.style.backgroundColor = 'rgb(248, 205, 101)';
+    strenColor1.style.borderColor = 'rgb(248, 205, 101)';
+    strenColor1.style.borderWidth = '2px';
+    strenColor1.style.borderStyle = 'solid';
+
+    strenColor2.style.backgroundColor = 'rgb(248, 205, 101)';
+    strenColor2.style.borderColor = 'rgb(248, 205, 101)';
+    strenColor2.style.borderWidth = '2px';
+    strenColor2.style.borderStyle = 'solid';
+
+    strenColor3.style.backgroundColor = 'rgb(248, 205, 101)';
+    strenColor3.style.borderColor = 'rgb(248, 205, 101)';
+    strenColor3.style.borderWidth = '2px';
+    strenColor3.style.borderStyle = 'solid';
+}
+
+const mediumColorRef = mediumColor();
+
+function strongColor(){
+    strenColor1.style.backgroundColor = 'rgb(164, 255, 175)';
+    strenColor1.style.borderColor = 'rgb(164, 255, 175)';
+    strenColor1.style.borderWidth = '2px';
+    strenColor1.style.borderStyle = 'solid';
+
+    strenColor2.style.backgroundColor = 'rgb(164, 255, 175)';
+    strenColor2.style.borderColor = 'rgb(164, 255, 175)';
+    strenColor2.style.borderWidth = '2px';
+    strenColor2.style.borderStyle = 'solid';
+
+    strenColor3.style.backgroundColor = 'rgb(164, 255, 175)';
+    strenColor3.style.borderColor = 'rgb(164, 255, 175)';
+    strenColor3.style.borderWidth = '2px';
+    strenColor3.style.borderStyle = 'solid';
+
+    strenColor4.style.backgroundColor = 'rgb(164, 255, 175)';
+    strenColor4.style.borderColor = 'rgb(164, 255, 175)';
+    strenColor4.style.borderWidth = '2px';
+    strenColor4.style.borderStyle = 'solid';
+}
+
+const strongColorRef = strongColor();
+
