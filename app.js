@@ -54,6 +54,11 @@ const strenColor2 = document.getElementById('colordisplay2');
 const strenColor3 = document.getElementById('colordisplay3');
 const strenColor4 = document.getElementById('colordisplay4');
 
+// const tooWeakColorRef = tooWeakColor();
+// const weakColorRef = weakColor();
+// const mediumColorRef = mediumColor();
+// const strongColorRef = strongColor();
+
 
 generate.addEventListener('click', () => {
     const length = + slider.value;
@@ -84,8 +89,9 @@ generate.addEventListener('click', () => {
             }
             const tooweaktext = document.createTextNode('too weak!');
             passwordStrength.appendChild(tooweaktext);
-
+            
             tooWeakColor();
+
             break;
 
         case 2:
@@ -96,6 +102,7 @@ generate.addEventListener('click', () => {
             passwordStrength.appendChild(weaktext);
 
             weakColor();
+                 
             break;
 
         case 3:
@@ -106,6 +113,7 @@ generate.addEventListener('click', () => {
             passwordStrength.appendChild(mediumtext);
 
             mediumColor();
+
             break;
 
         case 4:
@@ -116,6 +124,7 @@ generate.addEventListener('click', () => {
             passwordStrength.appendChild(strongtext);
 
             strongColor();
+
             break;
         default:
             alert('Please choose at least one option');
@@ -169,8 +178,6 @@ function tooWeakColor() {
     strenColor1.style.borderStyle = 'solid';
 }
 
-const tooWeakColorRef = tooWeakColor();
-
 function weakColor() {
     strenColor1.style.backgroundColor = 'rgb(251, 124, 88)';
     strenColor1.style.borderColor = 'rgb(251, 124, 88)';
@@ -182,8 +189,6 @@ function weakColor() {
     strenColor2.style.borderWidth = '2px';
     strenColor2.style.borderStyle = 'solid';
 }
-
-const weakColorRef = weakColor();
 
 function mediumColor() {
     strenColor1.style.backgroundColor = 'rgb(248, 205, 101)';
@@ -201,8 +206,6 @@ function mediumColor() {
     strenColor3.style.borderWidth = '2px';
     strenColor3.style.borderStyle = 'solid';
 }
-
-const mediumColorRef = mediumColor();
 
 function strongColor(){
     strenColor1.style.backgroundColor = 'rgb(164, 255, 175)';
@@ -225,6 +228,3 @@ function strongColor(){
     strenColor4.style.borderWidth = '2px';
     strenColor4.style.borderStyle = 'solid';
 }
-
-const strongColorRef = strongColor();
-
